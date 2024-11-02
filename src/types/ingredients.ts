@@ -3,6 +3,7 @@ export interface Ingredient {
   strIngredient: string;
   strDescription: string;
   strType: string | null;
+  slug?: string;
 }
 
 export interface IngredientsResponse {
