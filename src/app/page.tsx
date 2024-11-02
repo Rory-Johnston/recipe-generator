@@ -1,5 +1,6 @@
-import IngredientList from "@/components/ingredient_list/ingredient_list";
+import Head from "next/head";
 import { IngredientsResponse, Ingredient } from "@/types/ingredients";
+import IngredientContainer from "@/components/ingredient_container/ingredient_container";
 
 export default async function Home() {
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -17,18 +18,20 @@ export default async function Home() {
   const ingredients: Ingredient[] = data.meals;
 
   return (
-    <div className="flex justify-items align-items w-full">
-      <title>Ingredients - Recipe Generator</title>
-      <meta
-        name="description"
-        content="List of all ingredients available for your recipes."
-      />
-      <div className="flex justify-center items-center w-full min-h-screen bg-gray-100">
-        <div className="text-black max-w-[1200px] p-6 bg-white shadow-md rounded">
+    <>
+      <Head>
+        <title>Ingredients - Recipe Generator</title>
+        <meta
+          name="description"
+          content="List of all ingredients available for your recipes."
+        />
+      </Head>
+      <div className="flex justify-center items-center bg-gray-100">
+        <div className="text-black max-w-[1200px] w-full min-h-screen p-6 bg-white shadow-md rounded">
           <h1 className="text-3xl font-bold mb-6">Ingredients</h1>
-          <IngredientList ingredients={ingredients} />
+          <IngredientContainer ingredients={ingredients} />
         </div>
       </div>
-    </div>
+    </>
   );
 }
