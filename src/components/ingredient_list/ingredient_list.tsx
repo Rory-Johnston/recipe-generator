@@ -13,10 +13,11 @@ const IMAGE_URL = process.env.NEXT_PUBLIC_INGREDIENT_IMAGE_URL;
 const IngredientList: React.FC<IngredientListProps> = ({ ingredients }) => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <span>Click on an ingredient to see recipes</span>
       {ingredients.map((ingredient) => {
         const slug = slugify(ingredient.strIngredient);
         return (
-          <Link href={`/ingredients/${slug}`} key={ingredient.idIngredient}>
+          <Link href={`/ingredient/${slug}`} key={ingredient.idIngredient}>
             <div className="p-5 rounded-md bg-green-300 cursor-pointer hover:bg-green-400 transition-colors">
               <Image
                 src={`${IMAGE_URL}/${ingredient.strIngredient}.png`}
