@@ -3,5 +3,5 @@ export const slugify = (text: string): string => {
     .toString()
     .toLowerCase()
     .trim()
-    .replace(/[\s\W-]+/g, "-");
+    .replace(/[\s\W-]+/g, "_");
 };
